@@ -43,7 +43,7 @@ class LanguagesController < ApplicationController
     language = Language.find(params[:id])
     paradigm = Paradigm.find(params[:paradigm_id])
     language.paradigms << paradigm
-    render json: { 'Paradigm has been added.' }
+    render json: { 'result': 'Paradigm has been added.' }
   end
 
   private

@@ -43,7 +43,7 @@ class ProgrammersController < ApplicationController
     programmer = Programmer.find(params[:id])
     language = Language.find(params[:language_id])
     programmer.languages << language
-    render json: { 'Language has been added.' }
+    render json: { 'result': 'Language has been added.' }
   end
 
   private
