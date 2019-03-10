@@ -38,6 +38,14 @@ class ProgrammersController < ApplicationController
     @programmer.destroy
   end
 
+  # PUT /programmers/:id/languages/rel/:language_id
+  def add_language
+    programmer = Programmer.find(params[:id])
+    language = Language.find(params[:language_id])
+    programmer.languages << language
+    render json: { 'Language has been added.' }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_programmer

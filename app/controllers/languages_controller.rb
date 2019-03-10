@@ -38,6 +38,14 @@ class LanguagesController < ApplicationController
     @language.destroy
   end
 
+  # PUT /languages/:id/paradigms/rel/:paradigm_id
+  def add_paradigm
+    language = Language.find(params[:id])
+    paradigm = Paradigm.find(params[:paradigm_id])
+    language.paradigms << paradigm
+    render json: { 'Paradigm has been added.' }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_language
