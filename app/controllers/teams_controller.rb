@@ -38,6 +38,17 @@ class TeamsController < ApplicationController
     @team.destroy
   end
 
+  # GET /teams/include_all_data
+  def include_all_data
+    @teams = Team.all
+    teams_json = []
+    @teams.each do |t|
+      teams_json << t.all_data_as_json
+    end
+
+    render json: teams_json
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team

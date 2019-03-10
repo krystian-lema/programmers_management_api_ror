@@ -13,5 +13,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :teams
+  resources :teams do
+    collection do
+      # GET /teams/include_all_data
+      get :include_all_data, action: :include_all_data
+    end
+  end
 end
