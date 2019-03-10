@@ -1,0 +1,2 @@
+class Paradigm < ApplicationRecord
+end
